@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using System.Data;
-using System.Data.OleDb;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace Kiosco.Modelos
 {
     class Base
     {
-        private OleDbCommand Cmd;
-        private OleDbConnection Connection;
-        private OleDbDataReader Reader;
-        private string ConnectionString;
+        private MySqlCommand Cmd;
+        private MySqlConnectionStringBuilder Builder;
+        private MySqlConnection Connection;
+        private MySqlDataReader Reader;
         private string SqlString;
         private DataTable Tabla;
+        private DataRow registro;
         private string db_name;
 
         public string DBName
@@ -26,25 +27,36 @@ namespace Kiosco.Modelos
             set { this.db_name= value; }
         }
 
+        public DataRow RegistroDB
+        {
+            get { return registro; }
+        }
+
         public Base()
         {
             DBName= "Base";
-            Cmd = new OleDbCommand();
-            Connection = new OleDbConnection();
-            ConnectionString = ConfigurationManager.ConnectionStrings["Kiosco"].ToString();
+            Cmd = new MySqlCommand();
+
+            Builder = new MySqlConnectionStringBuilder();
+            Builder.Server = "sql7.freemysqlhosting.net";
+            Builder.Port = 3306;
+            Builder.Database = "sql7131578";
+            Builder.UserID = "sql7131578";
+            Builder.Password = "gWp4zNiMY9";
+            
+            Connection = new MySqlConnection(Builder.ToString());
         }
 
         public bool Conectar()
         {
             try
             {
-                Connection.ConnectionString = ConnectionString;
                 Connection.Open();
                 return true;
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar a SQL. " + ex.ToString());
+                MessageBox.Show("Error al conectar a MySQL. " + ex.ToString());
             }
             
             return false;
@@ -77,13 +89,13 @@ namespace Kiosco.Modelos
                 Desconectar();
                 return Tabla;
             }
-            catch (OleDbException ex)
+            catch (MySqlException ex)
             {
                 throw new Exception(ex.ToString());
             }
         }
 
-        public DataRow SelectById(int id)
+        public bool SelectById(int id)
         {
             Tabla = new DataTable();
             Tabla.Rows.Clear();
@@ -104,7 +116,7 @@ namespace Kiosco.Modelos
 
                 Desconectar();
             }
-            catch (OleDbException ex)
+            catch (MySqlException ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -115,9 +127,11 @@ namespace Kiosco.Modelos
 
             if (Tabla.Rows.Count != 0)
             {
-
+                registro = Tabla.Rows[0];
+                return true;
             }
-            return Tabla.Rows[0];
+
+            return false;
         }
 
         public bool Insert(DataRow datos)

@@ -34,7 +34,11 @@ namespace Kiosco.Modelos
         public Ubicacion(int id)
         {
             DBName = "ubicaciones";
-            DataRow datos = SelectById(id);
+            if (!SelectById(id))
+            {
+                return;
+            }
+            DataRow datos = RegistroDB;
             Id = Convert.ToInt32(datos["id"]);
             Descripcion = datos["descripcion"].ToString();
         }

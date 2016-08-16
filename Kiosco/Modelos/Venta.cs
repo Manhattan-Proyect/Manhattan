@@ -57,16 +57,5 @@ namespace Kiosco.Modelos
             Egreso = _egreso;
             Total = _total;
         }
-
-        public Venta SelectOne(int id)
-        {
-            DataRow data = SelectById(id);
-            return new Venta(
-                Convert.ToDateTime(data["fecha"]),
-                Convert.ToDecimal(data["ingreso"]),
-                Convert.ToDecimal(data["egreso"]),
-                Convert.ToDecimal(data["total"])
-            );
-        }
     }
 }

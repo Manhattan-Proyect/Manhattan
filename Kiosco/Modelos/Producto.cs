@@ -141,7 +141,12 @@ namespace Kiosco.Modelos
         public Producto(int id)
         {
             DBName = "Productos"; // Propiedad de la clase Base
-            DataRow datos = SelectById(id);
+            
+            if (!SelectById(id))
+            {
+                return;
+            }
+            DataRow datos = RegistroDB;
             Id = id;
             Descripcion = datos["descripcion"].ToString();
             Cantidad = Convert.ToInt32(datos["cantidad"]);
