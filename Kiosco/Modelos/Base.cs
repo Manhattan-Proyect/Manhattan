@@ -115,6 +115,7 @@ namespace Kiosco.Modelos
 
             if (Tabla.Rows.Count != 0)
             {
+
             }
             return Tabla.Rows[0];
         }
