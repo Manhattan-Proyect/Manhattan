@@ -31,6 +31,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgvGeneral = new System.Windows.Forms.DataGridView();
             this.btnProducto = new System.Windows.Forms.Button();
+            this.btnInsertar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnEliminarProd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneral)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,16 +70,50 @@
             this.btnProducto.UseVisualStyleBackColor = true;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
+            // btnInsertar
+            // 
+            this.btnInsertar.Location = new System.Drawing.Point(130, 152);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(118, 38);
+            this.btnInsertar.TabIndex = 3;
+            this.btnInsertar.Text = "Insertar Producto";
+            this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(254, 152);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(118, 38);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Ver Tabla Producto con Manejador";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnEliminarProd
+            // 
+            this.btnEliminarProd.Location = new System.Drawing.Point(378, 152);
+            this.btnEliminarProd.Name = "btnEliminarProd";
+            this.btnEliminarProd.Size = new System.Drawing.Size(118, 38);
+            this.btnEliminarProd.TabIndex = 5;
+            this.btnEliminarProd.Text = "Eliminar Producto";
+            this.btnEliminarProd.UseVisualStyleBackColor = true;
+            this.btnEliminarProd.Click += new System.EventHandler(this.btnEliminarProd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 516);
+            this.Controls.Add(this.btnEliminarProd);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.btnProducto);
             this.Controls.Add(this.dgvGeneral);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneral)).EndInit();
             this.ResumeLayout(false);
 
@@ -87,6 +124,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvGeneral;
         private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEliminarProd;
     }
 }
 

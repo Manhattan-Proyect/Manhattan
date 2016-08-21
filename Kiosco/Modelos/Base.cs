@@ -171,5 +171,7 @@ namespace Kiosco.Modelos
         {
             MessageBox.Show(DBName);
         }
+
+        //public abstract Base mostrarme();
     }
 }

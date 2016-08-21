@@ -164,5 +164,24 @@ namespace Kiosco.Modelos
         {
             DataTable dt = new DataTable();
         }
+
+        //public override mostrarme()
+        //{
+        //    //Producto me = new Producto(id);
+        //    if (SelectById(id))
+        //    {
+        //        return;
+        //    }
+        //    //me.Cantidad = cantidad;
+        //    //me.Codigo = codigo;
+        //    //me.Descripcion = descripcion;
+        //    //me.FechaVencimiento = fecha_vencimiento;
+        //    //me.Ubicacion = ubicacion;
+        //    //me.TiempoAlarma = tiempo_alarma;
+        //    //me.Proveedor = proveedor;
+        //    //me.Rubro = rubro;
+        //    //me.Precio = precio;
+        //    return null;
+        //}
     }
 }

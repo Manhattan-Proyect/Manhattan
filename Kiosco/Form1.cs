@@ -14,6 +14,7 @@ namespace Kiosco
     public partial class Form1 : Form
     {
         private Modelos.Base objeto = new Modelos.Base();
+        private Modelos.ManejoDatos manejador;
         private DataTable tabla;
         private MySqlCommand cmd;
         string sql;
@@ -58,6 +59,52 @@ namespace Kiosco
             }
             
             
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            manejador = new Modelos.ManejoDatos("productos");
+            sql = "INSERT into productos VALUES (1,'Coca Cola x 2000',1,'2017-08-10',1,90,1,123,1,15)";
+
+            manejador.Acceso.insertar(sql);
+
+            carga_grilla();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            manejador = new Modelos.ManejoDatos("productos");
+            tabla = new DataTable();
+
+            tabla = manejador.Acceso.leo_tabla();
+
+            dgvGeneral.DataSource = tabla;
+        }
+
+        private void btnEliminarProd_Click(object sender, EventArgs e)
+        {
+            manejador = new Modelos.ManejoDatos("productos");
+            sql = "delete from " + manejador.Acceso.Nombre_tabla;
+            sql += " WHERE id = 1";
+
+            manejador.Acceso.insertar(sql);
+
+            carga_grilla();
+        }
+
+        private void carga_grilla()
+        {
+            manejador = new Modelos.ManejoDatos("productos");
+            tabla = new DataTable();
+
+            tabla = manejador.Acceso.leo_tabla();
+
+            dgvGeneral.DataSource = tabla;
         }
     }
 }
