@@ -32,6 +32,19 @@ namespace Kiosco.Modelos
             get { return registro; }
         }
 
+        public MySqlConnection Connection1
+        {
+            get
+            {
+                return Connection;
+            }
+
+            set
+            {
+                Connection = value;
+            }
+        }
+
         public Base()
         {
             DBName= "Base";
@@ -51,7 +64,16 @@ namespace Kiosco.Modelos
         {
             try
             {
-                Connection.Open();
+                if (Connection.State.ToString() == "Closed")
+                {
+                    Connection.Open();
+                    MessageBox.Show("Conectado OK!");
+                }
+                else
+                {
+                    MessageBox.Show("Usted ya estaba conectado!");
+                }
+               
                 return true;
             }
             catch (MySqlException ex)
