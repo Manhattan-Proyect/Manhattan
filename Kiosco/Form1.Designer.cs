@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.dgvGeneral = new System.Windows.Forms.DataGridView();
-            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnUbicaciones = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnEliminarProd = new System.Windows.Forms.Button();
@@ -60,15 +60,15 @@
             this.dgvGeneral.Size = new System.Drawing.Size(544, 224);
             this.dgvGeneral.TabIndex = 1;
             // 
-            // btnProducto
+            // btnUbicaciones
             // 
-            this.btnProducto.Location = new System.Drawing.Point(13, 151);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(110, 39);
-            this.btnProducto.TabIndex = 2;
-            this.btnProducto.Text = "Tabla Producto";
-            this.btnProducto.UseVisualStyleBackColor = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            this.btnUbicaciones.Location = new System.Drawing.Point(13, 151);
+            this.btnUbicaciones.Name = "btnUbicaciones";
+            this.btnUbicaciones.Size = new System.Drawing.Size(110, 39);
+            this.btnUbicaciones.TabIndex = 2;
+            this.btnUbicaciones.Text = "Tabla Ubicaciones";
+            this.btnUbicaciones.UseVisualStyleBackColor = true;
+            this.btnUbicaciones.Click += new System.EventHandler(this.btnUbicaciones_Click);
             // 
             // btnInsertar
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.btnEliminarProd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnInsertar);
-            this.Controls.Add(this.btnProducto);
+            this.Controls.Add(this.btnUbicaciones);
             this.Controls.Add(this.dgvGeneral);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -123,7 +123,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvGeneral;
-        private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnUbicaciones;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnEliminarProd;

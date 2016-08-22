@@ -11,7 +11,8 @@ namespace Kiosco.Modelos
 {
     class AccesoDatos
     {
-        private String cadena_conexion = "";
+        private MySqlConnectionStringBuilder builder;
+        //private String cadena_conexion = "";
         private String nombre_tabla = "";
 
         private MySqlConnection conexion = new MySqlConnection();
@@ -19,24 +20,41 @@ namespace Kiosco.Modelos
 
         private DataTable tabla;
 
-        public AccesoDatos(string cadena_conexion, string nombre_tabla)
+        public AccesoDatos(string nombre_tabla)
         {
-            this.cadena_conexion = cadena_conexion;
+            //this.cadena_conexion = cadena_conexion;
             this.nombre_tabla = nombre_tabla;
+            cadena_conexion();
         }
 
-        public string Cadena_conexion
+        public String cadena_conexion()
         {
-            get
-            {
-                return cadena_conexion;
-            }
+            //DBName = "Base";
+            //Cmd = new MySqlCommand();
 
-            set
-            {
-                cadena_conexion = value;
-            }
+            builder = new MySqlConnectionStringBuilder();
+            builder.Server = "sql7.freemysqlhosting.net";
+            builder.Port = 3306;
+            builder.Database = "sql7131578";
+            builder.UserID = "sql7131578";
+            builder.Password = "gWp4zNiMY9";
+
+            return builder.ToString();
         }
+
+
+        //public string Cadena_conexion
+        //{
+        //    get
+        //    {
+        //        return cadena_conexion;
+        //    }
+
+        //    set
+        //    {
+        //        cadena_conexion = value;
+        //    }
+        //}
 
         public string Nombre_tabla
         {
@@ -53,7 +71,7 @@ namespace Kiosco.Modelos
 
         private void conectar()
         {
-            conexion.ConnectionString = cadena_conexion;
+            conexion.ConnectionString = builder.ToString();
             conexion.Open();
 
             cmd.Connection = conexion;
@@ -111,6 +129,11 @@ namespace Kiosco.Modelos
         public void insertar(String txt_sql)
         {
             abm(txt_sql);
+        }
+
+        public void insertar(String txt_sql, String restriccion)
+        {
+            abm(txt_sql + " WHERE " + restriccion);
         }
 
 

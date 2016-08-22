@@ -14,9 +14,10 @@ namespace Kiosco
     public partial class Form1 : Form
     {
         private Modelos.Base objeto = new Modelos.Base();
-        private Modelos.ManejoDatos manejador;
+        //private Modelos.ManejoDatos manejador;
+        private Modelos.AccesoDatos manejador;
         private DataTable tabla;
-        private MySqlCommand cmd;
+        //private MySqlCommand cmd;
         string sql;
 
         public Form1()
@@ -41,15 +42,16 @@ namespace Kiosco
             objeto.Conectar();
         }
 
-        private void btnProducto_Click(object sender, EventArgs e)
+        private void btnUbicaciones_Click(object sender, EventArgs e)
         {
             try
             {
+                // manejador = new Modelos.ManejoDatos("ubicaciones");
+                manejador = new Modelos.AccesoDatos("ubicaciones");
                 tabla = new DataTable();
-                sql = "SELECT * FROM productos";
-                cmd = new MySqlCommand(sql, objeto.Connection1);
 
-                tabla.Load(cmd.ExecuteReader());
+                //tabla = manejador.Acceso.leo_tabla();
+                tabla = manejador.leo_tabla();
 
                 dgvGeneral.DataSource = tabla;
             }
@@ -68,41 +70,53 @@ namespace Kiosco
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            manejador = new Modelos.ManejoDatos("productos");
+            //manejador = new Modelos.ManejoDatos("productos");
+            manejador = new Modelos.AccesoDatos("productos");
             sql = "INSERT into productos VALUES (1,'Coca Cola x 2000',1,'2017-08-10',1,90,1,123,1,15)";
 
-            manejador.Acceso.insertar(sql);
+            //manejador.Acceso.insertar(sql);
+            manejador.insertar(sql);
 
-            carga_grilla();
+            //carga_grilla(manejador.Acceso.Nombre_tabla);
+            carga_grilla(manejador.Nombre_tabla);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            manejador = new Modelos.ManejoDatos("productos");
+            //manejador = new Modelos.ManejoDatos("productos");
+            manejador = new Modelos.AccesoDatos("productos");
             tabla = new DataTable();
 
-            tabla = manejador.Acceso.leo_tabla();
+            //tabla = manejador.Acceso.leo_tabla();
+            tabla = manejador.leo_tabla();
 
             dgvGeneral.DataSource = tabla;
         }
 
         private void btnEliminarProd_Click(object sender, EventArgs e)
         {
-            manejador = new Modelos.ManejoDatos("productos");
-            sql = "delete from " + manejador.Acceso.Nombre_tabla;
-            sql += " WHERE id = 1";
+            //manejador = new Modelos.ManejoDatos("productos");
+            manejador = new Modelos.AccesoDatos("productos");
+            string restriccion;
+            //sql = "delete from " + manejador.Acceso.Nombre_tabla;
+            sql = "delete from " + manejador.Nombre_tabla;
+            restriccion = " id = 1";
 
-            manejador.Acceso.insertar(sql);
+            //manejador.Acceso.insertar(sql);
+            manejador.insertar(sql, restriccion);
 
-            carga_grilla();
+            //carga_grilla(manejador.Acceso.Nombre_tabla);
+            carga_grilla(manejador.Nombre_tabla);
         }
 
-        private void carga_grilla()
+        private void carga_grilla(String nombre_tabla)
         {
-            manejador = new Modelos.ManejoDatos("productos");
+            //manejador = new Modelos.ManejoDatos(nombre_tabla);
+            manejador = new Modelos.AccesoDatos(nombre_tabla);
             tabla = new DataTable();
 
-            tabla = manejador.Acceso.leo_tabla();
+            //tabla = manejador.Acceso.leo_tabla();
+            tabla = manejador.leo_tabla();
 
             dgvGeneral.DataSource = tabla;
         }
