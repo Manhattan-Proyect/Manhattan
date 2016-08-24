@@ -19,6 +19,7 @@ namespace Kiosco
         private DataTable tabla;
         //private MySqlCommand cmd;
         string sql;
+        string raiz = Application.StartupPath.ToString();
 
         public Form1()
         {
@@ -66,6 +67,8 @@ namespace Kiosco
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            
+
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
@@ -75,7 +78,29 @@ namespace Kiosco
             sql = "INSERT into productos VALUES (1,'Coca Cola x 2000',1,'2017-08-10',1,90,1,123,1,15)";
 
             //manejador.Acceso.insertar(sql);
-            manejador.insertar(sql);
+            try
+            {
+                manejador.insertar(sql);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al ingresar el dato solicitado: " + ex.ToString());
+                
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(raiz + @"\test.txt", true))
+                {
+                   
+                    file.WriteLine("");
+                    file.WriteLine("");
+                    file.WriteLine("Fecha del error: " + DateTime.Today.ToString());
+                    file.WriteLine("");
+                    file.WriteLine("ERROR!!");
+                    file.WriteLine("");
+                    file.WriteLine(ex.ToString());
+                }
+            }
+            
 
             //carga_grilla(manejador.Acceso.Nombre_tabla);
             carga_grilla(manejador.Nombre_tabla);

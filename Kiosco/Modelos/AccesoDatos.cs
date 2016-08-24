@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace Kiosco.Modelos
@@ -72,7 +73,17 @@ namespace Kiosco.Modelos
         private void conectar()
         {
             conexion.ConnectionString = builder.ToString();
-            conexion.Open();
+
+            try
+            {
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar a la base de datos: " + ex.ToString());
+            }
+
+            
 
             cmd.Connection = conexion;
             cmd.CommandType = System.Data.CommandType.Text;

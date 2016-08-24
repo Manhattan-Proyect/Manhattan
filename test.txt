@@ -1,0 +1,64 @@
+MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '1' for key 'PRIMARY'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   en Kiosco.Modelos.AccesoDatos.abm(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 136
+   en Kiosco.Modelos.AccesoDatos.insertar(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 142
+   en Kiosco.Form1.btnInsertar_Click(Object sender, EventArgs e) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Form1.cs:línea 80MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '1' for key 'PRIMARY'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   en Kiosco.Modelos.AccesoDatos.abm(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 136
+   en Kiosco.Modelos.AccesoDatos.insertar(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 142
+   en Kiosco.Form1.btnInsertar_Click(Object sender, EventArgs e) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Form1.cs:línea 80
+
+
+ Fecha del error: 24/08/2016 12:00:00 a.m.
+MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '1' for key 'PRIMARY'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   en Kiosco.Modelos.AccesoDatos.abm(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 136
+   en Kiosco.Modelos.AccesoDatos.insertar(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 142
+   en Kiosco.Form1.btnInsertar_Click(Object sender, EventArgs e) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Form1.cs:línea 80
+Fecha del error: 24/08/2016 12:00:00 a.m.
+MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '1' for key 'PRIMARY'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   en Kiosco.Modelos.AccesoDatos.abm(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 136
+   en Kiosco.Modelos.AccesoDatos.insertar(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 142
+   en Kiosco.Form1.btnInsertar_Click(Object sender, EventArgs e) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Form1.cs:línea 80
+
+
+Fecha del error: 24/08/2016 12:00:00 a.m.
+
+ERROR!!
+
+MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '1' for key 'PRIMARY'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   en Kiosco.Modelos.AccesoDatos.abm(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 136
+   en Kiosco.Modelos.AccesoDatos.insertar(String txt_sql) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Modelos\AccesoDatos.cs:línea 142
+   en Kiosco.Form1.btnInsertar_Click(Object sender, EventArgs e) en C:\Users\Chelo\Documents\Visual Studio 2015\Projects\Manhattan\Kiosco\Form1.cs:línea 80
