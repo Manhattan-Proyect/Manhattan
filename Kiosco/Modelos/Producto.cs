@@ -18,10 +18,13 @@ namespace Kiosco.Modelos
         private int cantidad;
         private DateTime fecha_vencimiento;
         private Ubicacion ubicacion;
+        private int ubicacion2;
         private int tiempo_alarma;
         private Proveedor proveedor;
+        private int proveedor2;
         private int codigo;
         private Rubro rubro;
+        private int rubro2;
         private decimal precio;
 
         // Getters and Setters
@@ -159,10 +162,68 @@ namespace Kiosco.Modelos
             Precio = Convert.ToInt32(datos["precio"]);
         }
 
+        public Producto(string descripcion,int cantidad,DateTime fecha_vencimiento,int ubicacion_id,int tiempo_alarma,int proveedor_id,int codigo,int rubro_id,decimal precio)
+        {
+            this.DBName = "productos";
+            this.descripcion = descripcion;
+            this.cantidad = cantidad;
+            this.fecha_vencimiento = fecha_vencimiento;
+            this.ubicacion2 = ubicacion_id;
+            this.tiempo_alarma = tiempo_alarma;
+            this.proveedor2 = proveedor_id;
+            this.codigo = codigo;
+            this.rubro2 = rubro_id;
+            this.precio = precio;
+        }
+
+        public Producto(string descripcion, int cantidad, DateTime fecha_vencimiento, Ubicacion ubicacion, int tiempo_alarma, Proveedor proveedor, int codigo, Rubro rubro, decimal precio)
+        {
+            this.descripcion = descripcion;
+            this.cantidad = cantidad;
+            this.fecha_vencimiento = fecha_vencimiento;
+            this.ubicacion = ubicacion;
+            this.tiempo_alarma = tiempo_alarma;
+            this.proveedor = proveedor;
+            this.codigo = codigo;
+            this.rubro = rubro;
+            this.precio = precio;
+        }
+
         // Métodos
         public void Guardar()
         {
             DataTable dt = new DataTable();
+        }
+
+        //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
+        public String toString()
+        {
+            
+            string fecha = obtenerFecha();
+
+            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', " + ubicacion2 + ", " + TiempoAlarma + ", " + proveedor2 + ", " + Codigo + ", " + rubro2 + ", " + Precio;
+        }
+
+        private string obtenerFecha()
+        {
+            string dia = fecha_vencimiento.Day.ToString();
+            string mes = fecha_vencimiento.Month.ToString();
+            string year = fecha_vencimiento.Year.ToString();
+            string fecha = year + "-";
+            if (fecha_vencimiento.Month < 10)
+                fecha += "0" + mes + "-";
+            else
+                fecha += mes + "-";
+            if (fecha_vencimiento.Day < 10)
+                fecha += "0" + dia;
+            else
+                fecha += dia;
+            return fecha;
+        }
+
+        public string getColumnas()
+        {
+            return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio";
         }
 
         //public override mostrarme()

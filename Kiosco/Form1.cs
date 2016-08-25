@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
+using System.Threading;
 
 namespace Kiosco
 {
     public partial class Form1 : Form
     {
-        private Modelos.Base objeto = new Modelos.Base();
+        //private Modelos.Base objeto;
         //private Modelos.ManejoDatos manejador;
         private Modelos.AccesoDatos manejador;
         private DataTable tabla;
@@ -40,7 +42,7 @@ namespace Kiosco
             //prod.Rubro = new Modelos.Rubro(1);
             //prod.Guardar();
 
-            objeto.Conectar();
+            //objeto.Conectar();
         }
 
         private void btnUbicaciones_Click(object sender, EventArgs e)
@@ -73,9 +75,11 @@ namespace Kiosco
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            //manejador = new Modelos.ManejoDatos("productos");
-            manejador = new Modelos.AccesoDatos("productos");
-            sql = "INSERT into productos VALUES (1,'Coca Cola x 2000',1,'2017-08-10',1,90,1,123,1,15)";
+            //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
+            Modelos.Producto objeto2 = new Modelos.Producto(txtDescripcion.Text,Convert.ToInt16(txtCantidad.Text), Convert.ToDateTime(dtpVenci.Text), Convert.ToInt16(txtUbicacion.Text), Convert.ToInt16(txtAlarma.Text), Convert.ToInt16(txtProveedor.Text), Convert.ToInt16(txtCodigo.Text), Convert.ToInt16(txtRubro.Text),Convert.ToDecimal(txtPrecio.Text));
+            manejador = new Modelos.AccesoDatos(objeto2.DBName);
+            //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
+            sql = "INSERT into productos (" + objeto2.getColumnas() +") VALUES (" + objeto2.toString() +")";
 
             //manejador.Acceso.insertar(sql);
             try
@@ -104,6 +108,30 @@ namespace Kiosco
 
             //carga_grilla(manejador.Acceso.Nombre_tabla);
             carga_grilla(manejador.Nombre_tabla);
+            limpiar();
+        }
+
+        private void limpiar()
+        {
+            foreach (Control objeto in Controls)
+            {
+                if (objeto is TextBox)
+                {
+                    objeto.Text = "";
+                    objeto.Enabled = true;
+                }
+                if (objeto is ComboBox)
+                {
+                    ((ComboBox)objeto).SelectedValue = -1;
+                    objeto.Enabled = true;
+                }
+                if (objeto is MaskedTextBox)
+                {
+                    ((MaskedTextBox)objeto).Text = "";
+                    objeto.Enabled = true;
+                }
+                
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -125,7 +153,7 @@ namespace Kiosco
             string restriccion;
             //sql = "delete from " + manejador.Acceso.Nombre_tabla;
             sql = "delete from " + manejador.Nombre_tabla;
-            restriccion = " id = 1";
+            restriccion = " id = " + txtEliminar.Text;
 
             //manejador.Acceso.insertar(sql);
             manejador.insertar(sql, restriccion);
