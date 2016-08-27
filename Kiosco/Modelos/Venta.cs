@@ -12,9 +12,10 @@ namespace Kiosco.Modelos
         // Properties
         private int id;
         private DateTime fecha;
-        private decimal ingreso;
-        private decimal egreso;
-        private decimal total;
+        private Producto prod = new Producto();
+        private int cantidad;
+        private Ticket tick = new Ticket();
+        
 
         // Getters and Setters
         public int Id
@@ -27,21 +28,28 @@ namespace Kiosco.Modelos
             get { return fecha; }
             set { fecha = value; }
         }
-        public decimal Ingreso
+
+        internal Producto Prod
         {
-            get { return ingreso; }
-            set { ingreso = value; }
+            get { return prod; }
+
+            set { prod = value; }
         }
-        public decimal Egreso
+
+        public int Cantidad
         {
-            get { return egreso; }
-            set { egreso = value; }
+            get { return cantidad; }
+
+            set { cantidad = value; }
         }
-        public decimal Total
+
+        internal Ticket Tick
         {
-            get { return total; }
-            set { total = value; }
+            get { return tick; }
+
+            set { tick = value; }
         }
+
 
         // Constructors
         public Venta()
@@ -49,13 +57,13 @@ namespace Kiosco.Modelos
             DBName = "ventas";
         }
 
-        public Venta(DateTime _fecha, decimal _ingreso, decimal _egreso, decimal _total)
+        public Venta(int id, DateTime fecha, Producto prod, int cantidad, Ticket tick)
         {
-            DBName = "ventas";
-            Fecha = _fecha;
-            Ingreso = _ingreso;
-            Egreso = _egreso;
-            Total = _total;
+            this.id = id;
+            this.fecha = fecha;
+            this.prod = prod;
+            this.cantidad = cantidad;
+            this.tick = tick;
         }
     }
 }

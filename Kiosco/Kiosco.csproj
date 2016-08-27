@@ -66,6 +66,7 @@
     <Compile Include="Modelos\Producto.cs" />
     <Compile Include="Modelos\Proveedor.cs" />
     <Compile Include="Modelos\Rubro.cs" />
+    <Compile Include="Modelos\Ticket.cs" />
     <Compile Include="Modelos\Ubicacion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Venta.cs" />

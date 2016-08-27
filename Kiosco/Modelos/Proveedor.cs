@@ -12,6 +12,8 @@ namespace Kiosco.Modelos
         // Properties
         private int id;
         private string descripcion;
+        private string contacto;
+        private string observacion;
 
         // Getters and Setters
         public int Id
@@ -23,6 +25,20 @@ namespace Kiosco.Modelos
         {
             get { return descripcion; }
             set { descripcion = value; }
+        }
+
+        public string Contacto
+        {
+            get { return contacto; }
+
+            set { contacto = value; }
+        }
+
+        public string Observacion
+        {
+            get { return observacion; }
+
+            set { observacion = value; }
         }
 
         // Constructors
@@ -41,6 +57,14 @@ namespace Kiosco.Modelos
             DataRow datos = RegistroDB;
             Id = Convert.ToInt32(datos["id"]);
             Descripcion = datos["descripcion"].ToString();
+        }
+
+        public Proveedor(int id, string descripcion, string contacto, string observacion)
+        {
+            this.id = id;
+            this.descripcion = descripcion;
+            this.contacto = contacto;
+            this.observacion = observacion;
         }
     }
 }

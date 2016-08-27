@@ -18,14 +18,12 @@ namespace Kiosco.Modelos
         private int cantidad;
         private DateTime fecha_vencimiento;
         private Ubicacion ubicacion;
-        private int ubicacion2;
         private int tiempo_alarma;
         private Proveedor proveedor;
-        private int proveedor2;
         private int codigo;
         private Rubro rubro;
-        private int rubro2;
-        private decimal precio;
+        private decimal precio_lista;
+        private decimal precio_final;
 
         // Getters and Setters
         public int Id
@@ -40,99 +38,58 @@ namespace Kiosco.Modelos
         }
         public int Cantidad
         {
-            get
-            {
-                return cantidad;
-            }
+            get { return cantidad; }
 
-            set
-            {
-                cantidad = value;
-            }
+            set { cantidad = value; }
         }
         public DateTime FechaVencimiento
         {
-            get
-            {
-                return fecha_vencimiento;
-            }
+            get { return fecha_vencimiento; }
 
-            set
-            {
-                fecha_vencimiento = value;
-            }
+            set { fecha_vencimiento = value; }
         }
         public Ubicacion Ubicacion
         {
-            get
-            {
-                return ubicacion;
-            }
+            get { return ubicacion; }
 
-            set
-            {
-                ubicacion = value;
-            }
+            set { ubicacion = value; }
         }
         public int TiempoAlarma
         {
-            get
-            {
-                return tiempo_alarma;
-            }
+            get { return tiempo_alarma; }
 
-            set
-            {
-                tiempo_alarma = value;
-            }
+            set { tiempo_alarma = value; }
         }
         public Proveedor Proveedor
         {
-            get
-            {
-                return proveedor;
-            }
+            get { return proveedor; }
 
-            set
-            {
-                proveedor = value;
-            }
+            set { proveedor = value; }
         }
         public int Codigo
         {
-            get
-            {
-                return codigo;
-            }
+            get { return codigo; }
 
-            set
-            {
-                codigo = value;
-            }
+            set { codigo = value; }
         }
         public Rubro Rubro
         {
-            get
-            {
-                return rubro;
-            }
+            get { return rubro; }
 
-            set
-            {
-                rubro = value;
-            }
+            set { rubro = value; }
         }
-        public decimal Precio
+        public decimal Precio_lista
         {
-            get
-            {
-                return precio;
-            }
+            get { return precio_lista; }
 
-            set
-            {
-                precio = value;
-            }
+            set { precio_lista = value; }
+        }
+
+        public decimal Precio_final
+        {
+            get { return precio_final; }
+
+            set { precio_final = value; }
         }
 
         // Constructors
@@ -159,25 +116,12 @@ namespace Kiosco.Modelos
             Proveedor = new Proveedor(Convert.ToInt32(datos["proveedor_id"]));
             Codigo = Convert.ToInt32(datos["codigo"]);
             Rubro = new Rubro(Convert.ToInt32(datos["rubro_id"]));
-            Precio = Convert.ToInt32(datos["precio"]);
+            Precio_lista = Convert.ToInt32(datos["precio"]);
         }
 
-        public Producto(string descripcion,int cantidad,DateTime fecha_vencimiento,int ubicacion_id,int tiempo_alarma,int proveedor_id,int codigo,int rubro_id,decimal precio)
+        public Producto(int id, string descripcion, int cantidad, DateTime fecha_vencimiento, Ubicacion ubicacion, int tiempo_alarma, Proveedor proveedor, int codigo, Rubro rubro, decimal precio_lista, decimal precio_final)
         {
-            this.DBName = "productos";
-            this.descripcion = descripcion;
-            this.cantidad = cantidad;
-            this.fecha_vencimiento = fecha_vencimiento;
-            this.ubicacion2 = ubicacion_id;
-            this.tiempo_alarma = tiempo_alarma;
-            this.proveedor2 = proveedor_id;
-            this.codigo = codigo;
-            this.rubro2 = rubro_id;
-            this.precio = precio;
-        }
-
-        public Producto(string descripcion, int cantidad, DateTime fecha_vencimiento, Ubicacion ubicacion, int tiempo_alarma, Proveedor proveedor, int codigo, Rubro rubro, decimal precio)
-        {
+            this.id = id;
             this.descripcion = descripcion;
             this.cantidad = cantidad;
             this.fecha_vencimiento = fecha_vencimiento;
@@ -186,8 +130,13 @@ namespace Kiosco.Modelos
             this.proveedor = proveedor;
             this.codigo = codigo;
             this.rubro = rubro;
-            this.precio = precio;
+            this.precio_lista = precio_lista;
+            this.precio_final = precio_final;
         }
+
+
+
+
 
         // Métodos
         public void Guardar()
@@ -201,7 +150,7 @@ namespace Kiosco.Modelos
             
             string fecha = obtenerFecha();
 
-            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', " + ubicacion2 + ", " + TiempoAlarma + ", " + proveedor2 + ", " + Codigo + ", " + rubro2 + ", " + Precio;
+            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', "  + ", " + TiempoAlarma + ", "  + ", " + Codigo + ", " + ", " + Precio;
         }
 
         private string obtenerFecha()
@@ -226,23 +175,6 @@ namespace Kiosco.Modelos
             return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio";
         }
 
-        //public override mostrarme()
-        //{
-        //    //Producto me = new Producto(id);
-        //    if (SelectById(id))
-        //    {
-        //        return;
-        //    }
-        //    //me.Cantidad = cantidad;
-        //    //me.Codigo = codigo;
-        //    //me.Descripcion = descripcion;
-        //    //me.FechaVencimiento = fecha_vencimiento;
-        //    //me.Ubicacion = ubicacion;
-        //    //me.TiempoAlarma = tiempo_alarma;
-        //    //me.Proveedor = proveedor;
-        //    //me.Rubro = rubro;
-        //    //me.Precio = precio;
-        //    return null;
-        //}
+        
     }
 }
