@@ -70,6 +70,7 @@
     <Compile Include="Modelos\Ubicacion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Venta.cs" />
+    <Compile Include="Principal\Principal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
