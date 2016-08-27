@@ -76,10 +76,11 @@ namespace Kiosco
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
-            Modelos.Producto objeto2 = new Modelos.Producto(txtDescripcion.Text,Convert.ToInt16(txtCantidad.Text), Convert.ToDateTime(dtpVenci.Text), Convert.ToInt16(txtUbicacion.Text), Convert.ToInt16(txtAlarma.Text), Convert.ToInt16(txtProveedor.Text), Convert.ToInt16(txtCodigo.Text), Convert.ToInt16(txtRubro.Text),Convert.ToDecimal(txtPrecio.Text));
-            manejador = new Modelos.AccesoDatos(objeto2.DBName);
+            //TODO: Cambiar parametros de constructor
+            //Modelos.Producto objeto2 = new Modelos.Producto(txtDescripcion.Text,Convert.ToInt16(txtCantidad.Text), Convert.ToDateTime(dtpVenci.Text), Convert.ToInt16(txtUbicacion.Text), Convert.ToInt16(txtAlarma.Text), Convert.ToInt16(txtProveedor.Text), Convert.ToInt16(txtCodigo.Text), Convert.ToInt16(txtRubro.Text),Convert.ToDecimal(txtPrecio.Text));
+            //manejador = new Modelos.AccesoDatos(objeto2.DBName);
             //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
-            sql = "INSERT into productos (" + objeto2.getColumnas() +") VALUES (" + objeto2.toString() +")";
+            //sql = "INSERT into productos (" + objeto2.getColumnas() +") VALUES (" + objeto2.toString() +")";
 
             //manejador.Acceso.insertar(sql);
             try

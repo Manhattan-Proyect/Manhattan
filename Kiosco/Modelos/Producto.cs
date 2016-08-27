@@ -150,7 +150,7 @@ namespace Kiosco.Modelos
             
             string fecha = obtenerFecha();
 
-            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', "  + ", " + TiempoAlarma + ", "  + ", " + Codigo + ", " + ", " + Precio;
+            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', "  + ", " + TiempoAlarma + ", "  + ", " + Codigo + ", " + ", " + Precio_lista + ", " + Precio_final;
         }
 
         private string obtenerFecha()
@@ -172,7 +172,7 @@ namespace Kiosco.Modelos
 
         public string getColumnas()
         {
-            return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio";
+            return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio_lista,precio_final";
         }
 
         

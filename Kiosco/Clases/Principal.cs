@@ -8,6 +8,8 @@ namespace Kiosco.Principal
 {
     class Principal
     {
-
+        private Modelos.Producto prod;
+        private Modelos.Movimiento mov;
+        private Modelos.Venta venta;
     }
 }
