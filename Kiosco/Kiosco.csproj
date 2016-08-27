@@ -63,6 +63,7 @@
     <Compile Include="Modelos\Base.cs" />
     <Compile Include="Modelos\IBase.cs" />
     <Compile Include="Modelos\ManejoDatos.cs" />
+    <Compile Include="Modelos\Movimiento.cs" />
     <Compile Include="Modelos\Producto.cs" />
     <Compile Include="Modelos\Proveedor.cs" />
     <Compile Include="Modelos\Rubro.cs" />
