@@ -54,12 +54,6 @@
     <Compile Include="Formularios\ABM\Movimiento.Designer.cs">
       <DependentUpon>Movimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ABM\Producto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\ABM\Producto.Designer.cs">
-      <DependentUpon>Producto.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataSetKiosco.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +64,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ABM\Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ABM\Producto.Designer.cs">
+      <DependentUpon>Producto.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\ABM\Proveedor.cs">
       <SubType>Form</SubType>
@@ -118,6 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ABM\Producto.resx">
+      <DependentUpon>Producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

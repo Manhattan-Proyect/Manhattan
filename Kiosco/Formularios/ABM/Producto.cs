@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kiosco.ABM
+namespace Kiosco.Formularios.ABM
 {
-    public partial class Producto : Form
+    public partial class frmProducto : Form
     {
-        public Producto()
+        public frmProducto()
         {
             InitializeComponent();
+        }
+
+        private void frmProducto_Load(object sender, EventArgs e)
+        {
+            txtCodigo.Focus();
         }
     }
 }
