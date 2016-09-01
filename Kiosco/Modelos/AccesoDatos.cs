@@ -13,7 +13,6 @@ namespace Kiosco.Modelos
     class AccesoDatos
     {
         private MySqlConnectionStringBuilder builder;
-        //private String cadena_conexion = "";
         private String nombre_tabla = "";
 
         private MySqlConnection conexion = new MySqlConnection();

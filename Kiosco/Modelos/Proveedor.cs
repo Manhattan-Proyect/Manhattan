@@ -66,5 +66,15 @@ namespace Kiosco.Modelos
             this.contacto = contacto;
             this.observacion = observacion;
         }
+
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -65,5 +65,15 @@ namespace Kiosco.Modelos
             this.cantidad = cantidad;
             this.tick = tick;
         }
+
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

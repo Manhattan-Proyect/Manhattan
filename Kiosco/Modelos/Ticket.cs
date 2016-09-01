@@ -39,5 +39,15 @@ namespace Kiosco.Modelos
 
             set { fecha = value; }
         }
+
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

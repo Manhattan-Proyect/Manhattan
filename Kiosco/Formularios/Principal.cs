@@ -46,5 +46,17 @@ namespace Kiosco.Formularios
             Form1 frmPrueba = new Form1();
             frmPrueba.Show();
         }
+
+        private void movimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABM.Movimiento frmMov = new ABM.Movimiento();
+            frmMov.Show();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABM.Venta frmVenta = new ABM.Venta();
+            frmVenta.Show();
+        }
     }
 }

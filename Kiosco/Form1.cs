@@ -141,8 +141,10 @@ namespace Kiosco
             manejador = new Modelos.AccesoDatos("productos");
             tabla = new DataTable();
 
+            
+
             //tabla = manejador.Acceso.leo_tabla();
-            tabla = manejador.leo_tabla();
+            this.tabla = manejador.leo_tabla();
 
             dgvGeneral.DataSource = tabla;
         }

@@ -134,6 +134,21 @@ namespace Kiosco.Modelos
             this.precio_final = precio_final;
         }
 
+        public Producto(string descripcion, int cantidad, DateTime fecha_vencimiento, Ubicacion ubicacion, int tiempo_alarma, Proveedor proveedor, int codigo, Rubro rubro, decimal precio_lista, decimal precio_final)
+        {
+            this.DBName = "productos";
+            this.descripcion = descripcion;
+            this.cantidad = cantidad;
+            this.fecha_vencimiento = fecha_vencimiento;
+            this.ubicacion = ubicacion;
+            this.tiempo_alarma = tiempo_alarma;
+            this.proveedor = proveedor;
+            this.codigo = codigo;
+            this.rubro = rubro;
+            this.precio_lista = precio_lista;
+            this.precio_final = precio_final;
+        }
+
 
 
 
@@ -145,12 +160,12 @@ namespace Kiosco.Modelos
         }
 
         //descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio
-        public String toString()
+        public override String toString()
         {
             
             string fecha = obtenerFecha();
 
-            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', "  + ", " + TiempoAlarma + ", "  + ", " + Codigo + ", " + ", " + Precio_lista + ", " + Precio_final;
+            return "'" + Descripcion + "', " + Cantidad + ", '" + fecha + "', " + ubicacion.Id  + ", " + TiempoAlarma + ", " + proveedor.Id  + ", " + Codigo + ", " + rubro.Id + ", " + Precio_lista + ", " + Precio_final;
         }
 
         private string obtenerFecha()
@@ -170,7 +185,7 @@ namespace Kiosco.Modelos
             return fecha;
         }
 
-        public string getColumnas()
+        public override string getColumnas()
         {
             return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio_lista,precio_final";
         }

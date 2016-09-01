@@ -64,6 +64,14 @@ namespace Kiosco.Modelos
             set { tipo = value; }
         }
 
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -42,5 +42,15 @@ namespace Kiosco.Modelos
             Id = Convert.ToInt32(datos["id"]);
             Descripcion = datos["descripcion"].ToString();
         }
+
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

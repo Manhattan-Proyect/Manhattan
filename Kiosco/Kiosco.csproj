@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetKiosco.cs">
+      <DependentUpon>DataSetKiosco.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\DBCommand.cs" />
     <Compile Include="Formularios\ABM\Movimiento.cs">
       <SubType>Form</SubType>
     </Compile>

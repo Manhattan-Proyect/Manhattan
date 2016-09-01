@@ -41,5 +41,15 @@ namespace Kiosco.Modelos
         {
             this.DBName = "usuarios";
         }
+
+        public override string getColumnas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string toString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

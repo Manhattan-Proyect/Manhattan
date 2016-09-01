@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Kiosco.Modelos
 {
-    class Base
+    abstract class Base
     {
         private MySqlCommand Cmd;
         private MySqlConnectionStringBuilder Builder;
@@ -67,7 +67,7 @@ namespace Kiosco.Modelos
                 if (Connection.State.ToString() == "Closed")
                 {
                     Connection.Open();
-                    MessageBox.Show("Conectado OK!");
+                    //MessageBox.Show("Conectado OK!");
                 }
                 else
                 {
@@ -171,6 +171,11 @@ namespace Kiosco.Modelos
         {
             MessageBox.Show(DBName);
         }
+
+        abstract public string getColumnas();
+
+        abstract public string toString();
+
 
         //public abstract Base mostrarme();
     }
