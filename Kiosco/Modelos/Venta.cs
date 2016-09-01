@@ -75,5 +75,10 @@ namespace Kiosco.Modelos
         {
             throw new NotImplementedException();
         }
+
+        public override string getActualizar(Base objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

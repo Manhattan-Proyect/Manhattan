@@ -53,6 +53,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+           
             // 
             // cboRubro
             // 
@@ -61,6 +62,7 @@
             this.cboRubro.Name = "cboRubro";
             this.cboRubro.Size = new System.Drawing.Size(78, 21);
             this.cboRubro.TabIndex = 8;
+
             // 
             // cboProv
             // 
@@ -69,6 +71,7 @@
             this.cboProv.Name = "cboProv";
             this.cboProv.Size = new System.Drawing.Size(78, 21);
             this.cboProv.TabIndex = 6;
+           
             // 
             // cboUbic
             // 

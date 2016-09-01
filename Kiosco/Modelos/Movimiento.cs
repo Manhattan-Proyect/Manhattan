@@ -8,7 +8,6 @@ namespace Kiosco.Modelos
 {
     class Movimiento : Base
     {
-        private int id;
         private string descripcion;
         private DateTime fecha;
         private decimal monto;
@@ -21,7 +20,7 @@ namespace Kiosco.Modelos
 
         public Movimiento(int id, string descripcion, DateTime fecha, decimal monto, string tipo)
         {
-            this.id = id;
+            Id = id;
             this.descripcion = descripcion;
             this.fecha = fecha;
             this.monto = monto;
@@ -29,12 +28,12 @@ namespace Kiosco.Modelos
         }
 
         //Getter and Setters
-        public int Id
-        {
-            get { return id; }
+        //public override int Id
+        //{
+        //    get { return id; }
 
-            set { id = value; }
-        }
+        //    set { id = value; }
+        //}
 
         public string Descripcion
         {
@@ -62,6 +61,11 @@ namespace Kiosco.Modelos
             get { return tipo; }
 
             set { tipo = value; }
+        }
+
+        public override string getActualizar(Base objeto)
+        {
+            throw new NotImplementedException();
         }
 
         public override string getColumnas()

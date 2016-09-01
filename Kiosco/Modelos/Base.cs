@@ -20,6 +20,7 @@ namespace Kiosco.Modelos
         private DataTable Tabla;
         private DataRow registro;
         private string db_name;
+        private int id;
 
         public string DBName
         {
@@ -43,6 +44,13 @@ namespace Kiosco.Modelos
             {
                 Connection = value;
             }
+        }
+
+        public int Id
+        {
+            get { return id; }
+
+            set { id = value; }
         }
 
         public Base()
@@ -175,6 +183,9 @@ namespace Kiosco.Modelos
         abstract public string getColumnas();
 
         abstract public string toString();
+
+        abstract public string getActualizar(Modelos.Base objeto);
+        
 
 
         //public abstract Base mostrarme();

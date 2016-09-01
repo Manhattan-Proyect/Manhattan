@@ -43,12 +43,24 @@ namespace Kiosco.Modelos
             Descripcion = datos["descripcion"].ToString();
         }
 
+        public Rubro(int id, string descripcion)
+        {
+            DBName = "rubros";
+            this.id = id;
+            this.descripcion = descripcion;
+        }
+
         public override string getColumnas()
         {
-            throw new NotImplementedException();
+            return "id,descripcion";
         }
 
         public override string toString()
+        {
+            return Id + ",'" + Descripcion +"'";
+        }
+
+        public override string getActualizar(Base objeto)
         {
             throw new NotImplementedException();
         }

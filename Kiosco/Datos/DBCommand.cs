@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Kiosco.Datos
 {
@@ -79,13 +80,122 @@ namespace Kiosco.Datos
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error al ingresar el producto!");
+                    MessageBox.Show("Error al ingresar!");
                 }
                 finally
                 {
                     desconectar();
                 }
             }          
+        }
+
+        public void borrar(Modelos.Base objeto)
+        {
+            if (conectar())
+            {
+                sql = "DELETE FROM " + objeto.DBName + " WHERE Id = " + objeto.Id;
+
+                vComando.CommandText = sql;
+                try
+                {
+                    vComando.ExecuteNonQuery();
+                    MessageBox.Show("Se borro correctamente!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al borrar!");
+                }
+                finally
+                {
+                    desconectar();
+                }
+            }
+        }
+
+        public void actualizar(Modelos.Base objetoViejo, Modelos.Base objetoNuevo)
+        {
+            if (conectar())
+            {
+                sql = "UPDATE " + objetoViejo.DBName + " SET " + getUpdateString(objetoViejo,objetoNuevo);
+
+                vComando.CommandText = sql;
+                try
+                {
+                    vComando.ExecuteNonQuery();
+                    MessageBox.Show("Se actualizo correctamente!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al actualizar!");
+                }
+                finally
+                {
+                    desconectar();
+                }
+            }
+        }
+
+        public int cantElementos(string nombre_tabla)
+        {
+            if (conectar())
+            {
+                DataTable tabla = new DataTable();
+
+                sql = "SELECT * FROM " + nombre_tabla;
+
+                vComando.CommandText = sql;
+                try
+                {
+                    tabla.Load(vComando.ExecuteReader());
+                    return tabla.Rows.Count;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No se puede obtener la tabla " + nombre_tabla);
+                }
+                finally
+                {
+                    desconectar();
+                    
+                }
+            }
+            return 0;
+        }
+
+        public DataTable carga_grilla(string consulta)
+        {
+            DataTable tabla = new DataTable();
+            if (conectar())
+            {
+                
+                sql = consulta;
+
+                vComando.CommandText = sql;
+                try
+                {
+                    tabla.Load(vComando.ExecuteReader());
+                    return tabla;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al obtener la tabla ");
+                }
+                finally
+                {
+                    desconectar();
+                }
+            }
+            return tabla;
+        }
+
+        private string getUpdateString(Modelos.Base objetoViejo, Modelos.Base objetoNuevo)
+        {
+            string update = "";
+            
+            update += objetoViejo.getActualizar(objetoNuevo);
+            update += " WHERE Id = " + objetoViejo.Id;
+
+            return update;
         }
     }
 }

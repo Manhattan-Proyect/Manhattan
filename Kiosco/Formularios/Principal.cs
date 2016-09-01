@@ -58,5 +58,11 @@ namespace Kiosco.Formularios
             ABM.Venta frmVenta = new ABM.Venta();
             frmVenta.Show();
         }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Tablas.Producto verProducto = new Tablas.Producto();
+            verProducto.Show();
+        }
     }
 }

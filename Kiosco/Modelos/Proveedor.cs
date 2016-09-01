@@ -9,25 +9,26 @@ namespace Kiosco.Modelos
 {
     class Proveedor : Base
     {
-        // Properties
-        private int id;
+        //// Properties
+        //private int id;
         private string descripcion;
-        private string contacto;
+        private double contacto;
+        private string visita;
         private string observacion;
 
         // Getters and Setters
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        //public int Id
+        //{
+        //    get { return id; }
+        //    set { id = value; }
+        //}
         public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
 
-        public string Contacto
+        public double Contacto
         {
             get { return contacto; }
 
@@ -39,6 +40,13 @@ namespace Kiosco.Modelos
             get { return observacion; }
 
             set { observacion = value; }
+        }
+
+        public string Visita
+        {
+            get { return visita; }
+
+            set { visita = value; }
         }
 
         // Constructors
@@ -59,20 +67,36 @@ namespace Kiosco.Modelos
             Descripcion = datos["descripcion"].ToString();
         }
 
-        public Proveedor(int id, string descripcion, string contacto, string observacion)
+        public Proveedor(int id, string descripcion, double contacto, string visita, string observacion)
         {
-            this.id = id;
+            DBName = "proveedores";
+            Id = id;
             this.descripcion = descripcion;
             this.contacto = contacto;
+            this.visita = visita;
+            this.observacion = observacion;
+        }
+
+        public Proveedor(string descripcion, double contacto, string visita, string observacion)
+        {
+            DBName = "proveedores";
+            this.descripcion = descripcion;
+            this.contacto = contacto;
+            this.visita = visita;
             this.observacion = observacion;
         }
 
         public override string getColumnas()
         {
-            throw new NotImplementedException();
+            return "id,descripcion,contacto,visita,observacion";
         }
 
         public override string toString()
+        {
+            return Id + ",'" + Descripcion + "', " + Contacto + ", '" + Visita + "', '" + Observacion +"'";
+        }
+
+        public override string getActualizar(Base objeto)
         {
             throw new NotImplementedException();
         }

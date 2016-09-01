@@ -13,7 +13,6 @@ namespace Kiosco.Modelos
     class Producto : Base
     {
         // Properties
-        private int id;
         private string descripcion;
         private int cantidad;
         private DateTime fecha_vencimiento;
@@ -26,11 +25,11 @@ namespace Kiosco.Modelos
         private decimal precio_final;
 
         // Getters and Setters
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        //public int Id
+        //{
+        //    get { return id; }
+        //    set { id = value; }
+        //}
         public string Descripcion
         {
             get { return descripcion; }
@@ -95,12 +94,12 @@ namespace Kiosco.Modelos
         // Constructors
         public Producto()
         {
-            DBName = "Productos"; // Propiedad de la clase Base
+            DBName = "productos"; // Propiedad de la clase Base
         }
 
         public Producto(int id)
         {
-            DBName = "Productos"; // Propiedad de la clase Base
+            DBName = "productos"; // Propiedad de la clase Base
             
             if (!SelectById(id))
             {
@@ -116,12 +115,13 @@ namespace Kiosco.Modelos
             Proveedor = new Proveedor(Convert.ToInt32(datos["proveedor_id"]));
             Codigo = Convert.ToInt32(datos["codigo"]);
             Rubro = new Rubro(Convert.ToInt32(datos["rubro_id"]));
-            Precio_lista = Convert.ToInt32(datos["precio"]);
+            Precio_lista = Convert.ToDecimal(datos["precio_lista"]);
+            Precio_final = Convert.ToDecimal(datos["precio_final"]);
         }
 
         public Producto(int id, string descripcion, int cantidad, DateTime fecha_vencimiento, Ubicacion ubicacion, int tiempo_alarma, Proveedor proveedor, int codigo, Rubro rubro, decimal precio_lista, decimal precio_final)
         {
-            this.id = id;
+            Id = id;
             this.descripcion = descripcion;
             this.cantidad = cantidad;
             this.fecha_vencimiento = fecha_vencimiento;
@@ -190,6 +190,24 @@ namespace Kiosco.Modelos
             return "descripcion,cantidad,fecha_vencimiento,ubicacion_id,tiempo_alarma,proveedor_id,codigo,rubro_id,precio_lista,precio_final";
         }
 
-        
+        public override string getActualizar(Modelos.Base objeto)
+        {
+            Modelos.Producto p = (Modelos.Producto)objeto;
+            string actualizar = "";
+            actualizar = "descripcion = '" + p.Descripcion + "'";
+            actualizar += ", cantidad = " + p.Cantidad;
+            actualizar += ", fecha_vencimiento = '" + p.obtenerFecha() + "'";
+            actualizar += ", ubicacion_id = " + p.Ubicacion.Id;
+            actualizar += ", tiempo_alarma = " + p.TiempoAlarma;
+            actualizar += ", proveedor_id = " + p.Proveedor.Id;
+            actualizar += ", codigo = " + p.Codigo;
+            actualizar += ", rubro_id = " + p.Rubro.Id;
+            actualizar += ", precio_lista = " + p.Precio_lista;
+            actualizar += ", precio_final = " + p.Precio_final;
+
+            return actualizar;
+
+        }
+
     }
 }
